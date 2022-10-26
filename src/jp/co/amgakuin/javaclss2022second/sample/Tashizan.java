@@ -8,8 +8,8 @@ public class Tashizan {
 	
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
-		Tashizan k = new Tashizan();
-		int kotae = k.Tasu(30, 45);
+		Tashizan t = new Tashizan();
+		int kotae = t.Tasu(30, 45);
 		System.out.println(kotae);
 	}
 
