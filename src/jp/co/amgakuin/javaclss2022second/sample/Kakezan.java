@@ -6,9 +6,13 @@ public class Kakezan {
 		return a*b;
 	}
 	
+	public int tasu(int a, int b) {
+		return a+b;
+	}
+	
 	public static void main(String[] args) {
 		Kakezan k = new Kakezan();
-		int kotae = k.kakeru(20, 10);
+		int kotae = k.tasu(20, 10);
 		System.out.println(kotae);
 	}
 }
