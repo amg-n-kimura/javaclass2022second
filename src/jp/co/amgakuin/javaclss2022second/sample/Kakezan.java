@@ -10,9 +10,20 @@ public class Kakezan {
 		return a+b;
 	}
 	
+	public int waru(int a, int b) {
+		if(b == 0)
+		{
+			return 0;
+		}
+		else
+		{
+			return a/b;
+		}
+	}
+	
 	public static void main(String[] args) {
 		Kakezan k = new Kakezan();
-		int kotae = k.tasu(20, 10);
+		int kotae = k.waru(70, 5);
 		System.out.println(kotae);
 	}
 }
