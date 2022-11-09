@@ -1,25 +1,15 @@
 package jp.co.amgakuin.javaclss2022second.sampleresult;
 
 public class Tashizan {
-
-	/**
-	 * 足し算クラス
-	 * @param a
-	 * @param b
-	 * @return a+b
-	 */
-	public int tashizan(int a, int b) {
+	public int tasu(int a, int b) {
 		return a+b;
 	}
-	
-	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
 
-		Tashizan tashizan = new Tashizan();
-		int a = 1;
-		int b = 2;
-		int result = tashizan.tashizan(a, b);
-		System.out.println(a + " "+ "+" + b + " = "+result);
+	public static void main(String[] args) {
+		Tashizan t = new Tashizan();
+		int kotae = t.tasu(20, 10);
+		System.out.println(kotae);
+
 	}
 
 }
