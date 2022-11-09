@@ -1,4 +1,4 @@
-package jp.co.amgakuin.javaclss2022second.sample;
+package jp.co.amgakuin.javaclss2022second.pg0002.c20221109;
 
 public class Kakezan {
 

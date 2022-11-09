@@ -1,4 +1,4 @@
-package jp.co.amgakuin.javaclss2022second.sample;
+package jp.co.amgakuin.javaclss2022second.pg0002.c20221109;
 
 public class Tashizan {
 	
@@ -13,6 +13,8 @@ public class Tashizan {
 		
 		Tashizan t=new Tashizan();
 		System.out.println(t.Tasu(10,8));
+		
+		
 		
 		
 

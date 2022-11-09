@@ -1,8 +1,18 @@
-package jp.co.amgakuin.javaclss2022second.sample;
+package jp.co.amgakuin.javaclss2022second.pg0002.c20221109;
 
 public class Warizan {
 	
 	public int waru(int a,int b) {
+		
+		//例外処理
+		/*int result;
+		
+		try {
+			result=a/b;
+		}catch(Exception e) {
+			result=0;
+		}
+		return result;*/
 		
 		if(b==0) {
 			return 0;
