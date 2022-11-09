@@ -1,4 +1,4 @@
-package jp.co.amgakuin.javaclss2022second.sampleresult;
+package jp.co.amgakuin.javaclss2022second.pg0012.c20221109;
 
 public class Tashizan {
 
