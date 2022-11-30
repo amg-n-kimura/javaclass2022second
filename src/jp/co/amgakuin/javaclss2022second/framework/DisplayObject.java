@@ -2,6 +2,7 @@ package jp.co.amgakuin.javaclss2022second.framework;
 
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.util.Random;
 
 /**
  * 表示用オブジェクトクラス
@@ -55,7 +56,9 @@ public abstract class DisplayObject extends GameControllerObject
      */
     public int getX()
     {
-        return x;
+    	Random random = new Random();
+    	
+        return random.nextInt(100);
     }
 
     /**
@@ -64,6 +67,7 @@ public abstract class DisplayObject extends GameControllerObject
      */
     public void setX(int x)
     {
+    	
         this.x = x;
     }
 
@@ -73,7 +77,10 @@ public abstract class DisplayObject extends GameControllerObject
      */
     public int getY()
     {
-        return y;
+    	Random random = new Random();
+    	
+
+        return random.nextInt(100);
     }
 
     /**
@@ -82,6 +89,7 @@ public abstract class DisplayObject extends GameControllerObject
      */
     public void setY(int y)
     {
+    	
         this.y = y;
     }
 
