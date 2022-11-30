@@ -1,5 +1,6 @@
 package jp.co.amgakuin.javaclss2022second.samplef;
 
+
 import jp.co.amgakuin.javaclss2022second.framework.GameController;
 
 public class FrameworkSample {
@@ -8,8 +9,8 @@ public class FrameworkSample {
 		// TODO 自動生成されたメソッド・スタブ
 		GameController gc = GameController.gameControllerCreate(640, 480);
 		gc.start();
-		gc.addObject(new Shikaku());
-
+		for(int i= 0;i < 10;i++) {
+			gc.addObject(new Shikaku());
+		}
 	}
-
 }
