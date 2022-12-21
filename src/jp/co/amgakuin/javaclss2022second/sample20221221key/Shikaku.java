@@ -9,7 +9,8 @@ import java.awt.Graphics;
 import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
 
 public class Shikaku extends DisplayObject {
-	
+	int X = getX();
+	int Y = getY();
 	@Override
 	public boolean update() {
 		// TODO 自動生成されたメソッド・スタブ
@@ -21,7 +22,8 @@ public class Shikaku extends DisplayObject {
 		// TODO 自動生成されたメソッド・スタブ
 		//指定された色で描画
 		g.setColor(getColor());
-		g.fillRect(getX(),getY(),getWidth(),getHeight());
+		g.fillRect(X,Y,getWidth(),getHeight());
+		
 	}
 
 	@Override
