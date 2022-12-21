@@ -5,46 +5,35 @@ import java.awt.Graphics;
 import java.util.Random;
 
 import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
-import lombok.Setter;
 
 public class Shikaku extends DisplayObject {
-    @Setter
-	private boolean moveFlag=false;
-    private boolean left =false;
+	
 	@Override
 	public boolean update() {
-		// TODO 自動生成されたメソッド・スタブ
-		if(!moveFlag) {
-			return false;
-		}
-		if(left) {
-			setX(getX()-1);
-		}else {
-			setX(getX()+1);
-		}
-		if(getX()>640) {
-			left =true;
-		}
-		if(getX()<0) {
-			left =false;
-		}
-		
 		return false;
 	}
 
 	@Override
 	public void draw(Graphics g) {
 		// TODO 自動生成されたメソッド・スタブ
-		g.setColor(Color.GREEN);
+		g.setColor(getColor());
 		g.fillRect(getX(), getY(),100 , 100);
 	}
 	
 	@Override
 	public void initialize() {
-		// TODO 自動生成されたメソッド・スタブ
+		//ランダムで初期座標決定
 		Random random =new Random();
 		setX(random.nextInt(640));
 		setY(random.nextInt(480));
+		
+		//ランダムで色決定
+		int r,g,b;
+		r=random.nextInt(256);
+		g=random.nextInt(256);
+		b=random.nextInt(256);
+		setColor(new Color(r,g,b));
+		
 		initialized =true;
 	}
 
