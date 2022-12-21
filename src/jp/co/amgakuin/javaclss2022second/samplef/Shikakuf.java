@@ -6,7 +6,7 @@ import java.util.Random;
 
 import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
 
-public class Shikaku extends DisplayObject {
+public class Shikakuf extends DisplayObject {
 
 	@Override
 	public boolean update() {
