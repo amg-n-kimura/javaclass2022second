@@ -47,7 +47,11 @@ public class Shikaku extends DisplayObject {
 		setWidth(100);
 		setHeight(100);
 		//色の設定
-		setColor(Color.RED);
+		int r,g,b;
+		r=rnd.nextInt(256);
+		g=rnd.nextInt(256);
+		b=rnd.nextInt(256);
+		setColor(new Color(r,g,b));
 		//初期化完了フラグ
 		setInitialized(true);
 	}
