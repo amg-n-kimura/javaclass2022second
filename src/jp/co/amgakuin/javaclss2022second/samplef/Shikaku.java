@@ -11,6 +11,7 @@ public class Shikaku extends DisplayObject {
 	@Override
 	public boolean update() {
 		// TODO 自動生成されたメソッド・スタブ
+		
 		return false;
 	}
 
@@ -19,6 +20,7 @@ public class Shikaku extends DisplayObject {
 		// TODO 自動生成されたメソッド・スタブ
 		g.setColor(Color.GREEN);
 		g.fillRect(0, 0, 100, 100);
+		
 	}
 
 	@Override
