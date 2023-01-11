@@ -7,12 +7,18 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
+import lombok.Getter;
+import lombok.Setter;
 
 public class Shikaku extends DisplayObject {
+	@Setter
+	@Getter
+	private int moveX,moveY;
 	
 	@Override
 	public boolean update() {
-		// TODO 自動生成されたメソッド・スタブ
+		setX(getX()+moveX);
+		setY(getY()+moveY);
 		return false;
 	}
 
