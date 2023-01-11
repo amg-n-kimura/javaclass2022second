@@ -8,14 +8,17 @@ import lombok.Setter;
 
 public class KeyEventSample implements KeyListener {
 	@Setter
-	private Shikaku shikaku;
+	private static Shikaku shikaku;
 	
 	public static void main(String[] args) {
 		KeyEventSample key = new KeyEventSample();
-		key.setShikaku(new Shikaku());
+		shikaku = new Shikaku();
+		KeyEventSample.setShikaku(shikaku);
 		GameController gc = GameController.gameControllerCreate(640, 480);
 		gc.addKeyListener(key);
+		gc.addObject(shikaku);
 		gc.start();
+		
 	}
 	
 	@Override
@@ -28,8 +31,22 @@ public class KeyEventSample implements KeyListener {
 		// TODO 自動生成されたメソッド・スタブ
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			System.out.println("右");
+			//setShikaku(shikaku.getX() + 10);
+			shikaku.setX(shikaku.getX() + 10);
 		}
-		
+		if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+			System.out.println("左");
+			shikaku.setX(shikaku.getX() - 10);
+		}
+		if(e.getKeyCode() == KeyEvent.VK_UP) {
+			System.out.println("上");
+			shikaku.setY(shikaku.getY() - 10);
+		}
+		if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+			System.out.println("下");
+			shikaku.setY(shikaku.getY() + 10);
+			
+		}
 	}
 
 	@Override
