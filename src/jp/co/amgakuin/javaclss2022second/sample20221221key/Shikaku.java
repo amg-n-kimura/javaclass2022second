@@ -36,6 +36,7 @@ public class Shikaku extends DisplayObject {
 		setColor(Color.RED);
 		//初期化完了フラグ
 		setInitialized(true);
+		//aaaaaaaaaaaaaaaaa
 	}
 
 }
