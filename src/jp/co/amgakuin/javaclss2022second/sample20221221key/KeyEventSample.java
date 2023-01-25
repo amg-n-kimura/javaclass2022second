@@ -4,10 +4,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import jp.co.amgakuin.javaclss2022second.framework.GameController;
+import lombok.Getter;
 import lombok.Setter;
 
 public class KeyEventSample implements KeyListener {
 	@Setter
+	@Getter
 	private Shikaku shikaku;
 	
 	public static void main(String[] args) {
