@@ -10,6 +10,7 @@ public class Shikaku extends DisplayObject {
 	int posX[] = new int[10], posY[] = new int[10], waitTime, start = 0;
 	Random random = new Random();
 	int move=0;
+	//何か追加
 	
 	@Override
 	public boolean update() {
