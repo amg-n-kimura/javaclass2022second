@@ -47,6 +47,7 @@ public class KeyEventSample implements KeyListener {
 			shikaku.setY(shikaku.getY() + 10);
 			
 		}
+		//aaa
 	}
 
 	@Override

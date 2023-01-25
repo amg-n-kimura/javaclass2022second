@@ -37,5 +37,6 @@ public class Shikaku extends DisplayObject {
 		//初期化完了フラグ
 		setInitialized(true);
 	}
+	//aaa
 
 }
