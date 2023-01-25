@@ -8,15 +8,14 @@ import lombok.Setter;
 
 public class KeyEventSample implements KeyListener {
 	@Setter
-	static private Shikaku shikaku;
+	private Shikaku shikaku;
 	
 	public static void main(String[] args) {
 		KeyEventSample key = new KeyEventSample();
-		shikaku = new Shikaku();
-		KeyEventSample.setShikaku(shikaku);
+		key.setShikaku(new Shikaku());
 		GameController gc = GameController.gameControllerCreate(640, 480);
 		gc.addKeyListener(key);
-		gc.addObject(shikaku);
+		gc.addObject(key.shikaku);
 		gc.start();
 	}
 	
