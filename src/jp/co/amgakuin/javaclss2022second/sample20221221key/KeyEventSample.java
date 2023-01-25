@@ -8,6 +8,7 @@ import lombok.Setter;
 
 public class KeyEventSample implements KeyListener {
 	@Setter
+	
 	private Shikaku shikaku;
 	
 	public static void main(String[] args) {
@@ -15,6 +16,7 @@ public class KeyEventSample implements KeyListener {
 		key.setShikaku(new Shikaku());
 		GameController gc = GameController.gameControllerCreate(640, 480);
 		gc.addKeyListener(key);
+		gc.addObject(key.shikaku);
 		gc.start();
 	}
 	
