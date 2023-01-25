@@ -39,7 +39,7 @@ public class KeyEventSample implements KeyListener {
 			getShikaku().setX(getShikaku().getX() - 1);
 		}
 		if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-			getShikaku().setX(getShikaku().getX() + 1);
+			getShikaku().setX(getShikaku().getX() + 50);
 		}
 		
 	}
