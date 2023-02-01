@@ -43,6 +43,7 @@ public class MouseSampleMain implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
+		if(e.getButton()==MouseEvent.BUTTON1) {
 		int mouseX = gc.normalizeX(e.getX());
 		int mouseY = gc.normalizeY(e.getY());
 		Shikaku s = new Shikaku();
@@ -52,6 +53,9 @@ public class MouseSampleMain implements MouseListener {
 		s.setHeight(20);
 		s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
 		gc.addObject(s);
+		gc.addObject(s);
+		}
+	
 	}
 
 	@Override
