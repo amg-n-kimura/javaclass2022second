@@ -29,7 +29,7 @@ public class MouseSampleMain implements MouseListener {
 	private GameController gc = null;
 	
 	public void startSample() {
-		gc = GameController.gameControllerCreate(640, 480);
+		gc = GameController.gameControllerCreate(1920, 480);
 		gc.addMouseListener(this);
 		gc.start();
 	}
@@ -48,10 +48,11 @@ public class MouseSampleMain implements MouseListener {
 		Shikaku s = new Shikaku();
 		s.setX(mouseX);
 		s.setY(mouseY);
-		s.setWidth(20);
-		s.setHeight(20);
+		s.setWidth(100);
+		s.setHeight(100);
 		s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
 		gc.addObject(s);
+		myObjects.add(s);
 	}
 
 	@Override

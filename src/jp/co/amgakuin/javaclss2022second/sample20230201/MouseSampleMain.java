@@ -29,7 +29,7 @@ public class MouseSampleMain implements MouseListener {
 	private GameController gc = null;
 	
 	public void startSample() {
-		gc = GameController.gameControllerCreate(640, 480);
+		gc = GameController.gameControllerCreate(1920, 1080);
 		gc.addMouseListener(this);
 		gc.start();
 	}
