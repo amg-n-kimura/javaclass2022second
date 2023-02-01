@@ -16,8 +16,7 @@ public class Shikaku extends DisplayObject {
 	public boolean update() {
 		// TODO 自動生成されたメソッド・スタブ
 
-		//Random random = new Random();
-		//x=random.nextInt(-10);
+		//置いた位置で動く方向変える
 		
 		if(getY() < H / 2 - size) {
 			y -= 1;
