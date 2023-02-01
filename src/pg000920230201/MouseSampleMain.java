@@ -43,16 +43,25 @@ public class MouseSampleMain implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		int mouseX = gc.normalizeX(e.getX());
-		int mouseY = gc.normalizeY(e.getY());
-		Shikaku s = new Shikaku();
-		s.setX(mouseX);
-		s.setY(mouseY);
-		s.setWidth(100);
-		s.setHeight(100);
-		s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
-		gc.addObject(s);
+		
+		/** 左ボタンオブジェ追加 */
+		if(e.getButton()==MouseEvent.BUTTON1) {
+		 int mouseX = gc.normalizeX(e.getX());
+		 int mouseY = gc.normalizeY(e.getY());
+		 Shikaku s = new Shikaku();
+		 s.setX(mouseX);
+		 s.setY(mouseY);
+		 s.setWidth(100);
+		 s.setHeight(100);
+		 s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
+		 gc.addObject(s);
 		myObjects.add(s);
+		}else if(e.getButton()==MouseEvent.BUTTON2) {
+			/** 右で最初のオブジェクト削除 */
+			if(!myObjects.isEmpty()) {
+				gc.removeObject(myObjects.remove(0));
+			}
+		}
 	}
 
 	@Override
