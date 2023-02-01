@@ -56,7 +56,7 @@ public class MouseSampleMain implements MouseListener {
 		 s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
 		 gc.addObject(s);
 		myObjects.add(s);
-		}else if(e.getButton()==MouseEvent.BUTTON2) {
+		}else if(e.getButton()==MouseEvent.BUTTON3) {
 			/** 右で最初のオブジェクト削除 */
 			if(!myObjects.isEmpty()) {
 				gc.removeObject(myObjects.remove(0));
