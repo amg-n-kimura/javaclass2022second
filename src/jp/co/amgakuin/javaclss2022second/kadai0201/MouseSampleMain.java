@@ -1,4 +1,4 @@
-package jp.co.amgakuin.javaclss2022second.mypakke;
+package jp.co.amgakuin.javaclss2022second.kadai0201;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;

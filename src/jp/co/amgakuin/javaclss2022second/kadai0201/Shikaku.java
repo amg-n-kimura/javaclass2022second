@@ -1,6 +1,7 @@
-package jp.co.amgakuin.javaclss2022second.mypakke;
+package jp.co.amgakuin.javaclss2022second.kadai0201;
 
 import java.awt.Graphics;
+import java.util.Random;
 
 import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
 
@@ -11,9 +12,28 @@ import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
  */
 public class Shikaku extends DisplayObject {
 
+	//乱数用インスタンス
+	Random random = new Random();
 	@Override
 	public boolean update() {
 		// TODO 自動生成されたメソッド・スタブ
+		int insNum = random.nextInt(4);
+		if(insNum == 0)
+		{
+			setX(getX() + 2);
+		}
+		else if(insNum == 1)
+		{
+			setX(getX() - 2);
+		}
+		else if(insNum == 2)
+		{
+			setY(getY() + 2);	
+		}
+		else if(insNum == 3)
+		{
+			setY(getY() - 2);	
+		}
 		return false;
 	}
 
