@@ -32,6 +32,10 @@ public class MouseSampleMain implements MouseListener {
 		gc = GameController.gameControllerCreate(640, 480);
 		gc.addMouseListener(this);
 		gc.start();
+		
+		//MainLoopを起動する
+		MainLoop mainLoop = new MainLoop();
+		//mainLoop.setDoProcess(false);
 	}
 
 	public static void main(String[] args) {
@@ -44,8 +48,8 @@ public class MouseSampleMain implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
 		
-		// 左ボタンでオブジェクト追加
-		if(e.getButton() == MouseEvent.BUTTON1) {
+		//左ボタンでオブジェクト追加
+		if (e.getButton() == MouseEvent.BUTTON1) {
 			int mouseX = gc.normalizeX(e.getX());
 			int mouseY = gc.normalizeY(e.getY());
 			Shikaku s = new Shikaku();
@@ -56,9 +60,12 @@ public class MouseSampleMain implements MouseListener {
 			s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
 			gc.addObject(s);
 			myObjects.add(s);
-		} else if(e.getButton() == MouseEvent.BUTTON3) {
-			if(!myObjects.isEmpty()) {
+			System.out.println("オブジェクト追加");
+		} else if (e.getButton() == MouseEvent.BUTTON3) {
+			//左ボタンで古いオブジェクトを削除
+			if (!myObjects.isEmpty()) {
 				gc.removeObject(myObjects.remove(0));
+				System.out.println("オブジェクト削除");
 			}
 		}
 	}
