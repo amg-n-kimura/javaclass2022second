@@ -21,7 +21,7 @@ public class Tashizan {
 		int a = 1;
 		int b = 2;
 		int result = tashizan.tashizan(a, b);
-		System.out.println(a + " + " + b + " = "+result);
+		//System.out.println(a + " + " + b + " = "+result);
 	}
 
 }

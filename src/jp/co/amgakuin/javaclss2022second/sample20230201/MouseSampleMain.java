@@ -32,6 +32,10 @@ public class MouseSampleMain implements MouseListener {
 		gc = GameController.gameControllerCreate(1920, 1080);
 		gc.addMouseListener(this);
 		gc.start();
+		
+		//MainLoopを起動する
+		MainLoop mainLoop = new MainLoop();
+		//mainLoop.setDoProcess(false);
 	}
 
 	public static void main(String[] args) {
