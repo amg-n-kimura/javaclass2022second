@@ -19,7 +19,7 @@ public class Warizan {
 		int a = 10;
 		int b = 0;
 		int result = warizan.warizan(a, b);
-		System.out.println(a + " / " + b + " = " + result);
+		//System.out.println(a + " / " + b + " = " + result);
 	}
 
 }
