@@ -1,4 +1,4 @@
-package jp.co.amgakuin.javaclss2022second.doi20230201;
+package jp.co.amgakuin.javaclss2022second.kadai0201;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -8,8 +8,6 @@ import java.util.Random;
 
 import jp.co.amgakuin.javaclss2022second.framework.GameController;
 import jp.co.amgakuin.javaclss2022second.framework.GameControllerObject;
-import jp.co.amgakuin.javaclss2022second.sample20230201.MainLoop;
-import jp.co.amgakuin.javaclss2022second.sample20230201.Shikaku;
 
 /**
  * マウスで四角を描画する
@@ -34,14 +32,21 @@ public class MouseSampleMain implements MouseListener {
 		gc = GameController.gameControllerCreate(640, 480);
 		gc.addMouseListener(this);
 		gc.start();
+		
 		//MainLoopを起動する
-		MainLoop mainLoop = new MainLoop();
+		MainLoop mainLoop = new MainLoop(this);
+		//mainLoop.setDoProcess(false);
 	}
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		MouseSampleMain m = new MouseSampleMain();
 		m.startSample();
+	}
+	public void update() {
+		for(int i=0;i<myObjects.size();++i) {
+			myObjects.get(i).update();
+		}
 	}
 
 	@Override
