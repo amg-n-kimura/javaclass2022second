@@ -12,12 +12,16 @@ public class ParentClass {
 		privateInt = 30;
 	}
 	
+	
 	public void parentMethod() {
+		/*
 		System.out.println("Parent Method.");
 		System.out.println("publicInt="+publicInt);
 		System.out.println("protectedInt="+protectedInt);
 		System.out.println("privateInt="+privateInt);
+		*/
 	}
+	
 	
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
