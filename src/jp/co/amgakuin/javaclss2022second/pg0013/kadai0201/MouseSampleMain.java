@@ -1,4 +1,4 @@
-package jp.co.amgakuin.javaclss2022second.pg0013.c20230201;
+package jp.co.amgakuin.javaclss2022second.pg0013.kadai0201;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -32,6 +32,10 @@ public class MouseSampleMain implements MouseListener {
 		gc = GameController.gameControllerCreate(640, 480);
 		gc.addMouseListener(this);
 		gc.start();
+		
+		//MainLoopを起動する
+		MainLoop mainLoop = new MainLoop(this);
+		//mainLoop.setDoProcess(false);
 	}
 
 	public static void main(String[] args) {
@@ -39,20 +43,39 @@ public class MouseSampleMain implements MouseListener {
 		MouseSampleMain m = new MouseSampleMain();
 		m.startSample();
 	}
+	
+	public boolean update() {
+		// TODO 自動生成されたメソッド・スタブ
+		for(var i = 0;i <  myObjects.size(); ++i) {
+			myObjects.get(i).update();
+		}
+		return false;
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		int mouseX = gc.normalizeX(e.getX());
-		int mouseY = gc.normalizeY(e.getY());
-		Shikaku s = new Shikaku();
-		s.setX(mouseX);
-		s.setY(mouseY);
-		s.setWidth(20);
-		s.setHeight(20);
-		s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
-		gc.addObject(s);
-		myObjects.add(s);
+		
+		//左ボタンでオブジェクト追加
+		if (e.getButton() == MouseEvent.BUTTON1) {
+			int mouseX = gc.normalizeX(e.getX());
+			int mouseY = gc.normalizeY(e.getY());
+			Shikaku s = new Shikaku();
+			s.setX(mouseX);
+			s.setY(mouseY);
+			s.setWidth(20);
+			s.setHeight(20);
+			s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
+			gc.addObject(s);
+			myObjects.add(s);
+			System.out.println("オブジェクト追加");
+		} else if (e.getButton() == MouseEvent.BUTTON3) {
+			//左ボタンで古いオブジェクトを削除
+			if (!myObjects.isEmpty()) {
+				gc.removeObject(myObjects.remove(0));
+				System.out.println("オブジェクト削除");
+			}
+		}
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package jp.co.amgakuin.javaclss2022second.pg0013.c20230201;
+package jp.co.amgakuin.javaclss2022second.pg0013.kadai0201;
 
 import java.awt.Graphics;
 
@@ -14,6 +14,7 @@ public class Shikaku extends DisplayObject {
 	@Override
 	public boolean update() {
 		// TODO 自動生成されたメソッド・スタブ
+		this.setX(getX() + 1);
 		return false;
 	}
 
