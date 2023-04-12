@@ -19,6 +19,29 @@ import jp.co.amgakuin.javaclss2022second.framework.GameControllerObject;
  */
 public class MouseSampleMain implements MouseListener {
 	
+
+	//[5][4]の配列がほしい
+	//行列
+	//	行と列
+	//		5行4列
+	//	1 2 3 4
+	//	1 2 3 4
+	//	1 2 3 4
+	//	1 2 3 4
+	//	1 2 3 4
+	int array2d[][];// = new int[5][4];
+	
+	void setUpArray2d() {
+		array2d = new int[5][4];
+		for(int row=0; row<5; row++) {
+			for(int col=0; col<4; col++) {
+				array2d[row][col] = col + 1;
+			}
+		}
+		System.out.println(array2d.length);
+		System.out.println(array2d[0].length);
+	}	
+	
 	//乱数用インスタンス
 	Random random = new Random();
 	
@@ -41,7 +64,8 @@ public class MouseSampleMain implements MouseListener {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		MouseSampleMain m = new MouseSampleMain();
-		m.startSample();
+		//m.startSample();
+		m.setUpArray2d();
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import lombok.Setter;
 
 public class MainLoop extends Thread {
 
+	
 	private Thread myThread = null;
 	public MainLoop() {
 		myThread = new Thread(this);
