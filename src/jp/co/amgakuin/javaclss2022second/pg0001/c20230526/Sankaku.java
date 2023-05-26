@@ -9,7 +9,7 @@ import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
  * @author rf-nobuyuki-kimura
  *
  */
-public class Shikaku extends DisplayObject {
+public class Sankaku extends DisplayObject {
 
 	@Override
 	public boolean update() {
@@ -21,7 +21,10 @@ public class Shikaku extends DisplayObject {
 	public void draw(Graphics g) {
 		// TODO 自動生成されたメソッド・スタブ
 		g.setColor(getColor());
-		g.fillRect(getX(), getY(), getWidth(), getHeight());
+		//g.fillRect(getX(), getY(), getWidth(), getHeight());
+		g.drawLine(getX(), getY(), getX() + getWidth(), getY());
+		g.drawLine(getX(), getY(), getX(), getY() + getHeight());
+		g.drawLine(getX(), getY() + getHeight(), getX() + getWidth(), getY());
 	}
 
 	@Override
