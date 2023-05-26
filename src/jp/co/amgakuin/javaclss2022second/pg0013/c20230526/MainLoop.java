@@ -1,4 +1,4 @@
-package jp.co.amgakuin.javaclss2022second.sample20230201;
+package jp.co.amgakuin.javaclss2022second.pg0013.c20230526;
 
 import lombok.Getter;
 import lombok.Setter;

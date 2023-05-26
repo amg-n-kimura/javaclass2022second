@@ -1,4 +1,4 @@
-package jp.co.amgakuin.javaclss2022second.sample20230201;
+package jp.co.amgakuin.javaclss2022second.pg0013.c20230526;
 
 import java.awt.Graphics;
 
@@ -9,7 +9,7 @@ import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
  * @author rf-nobuyuki-kimura
  *
  */
-public class Shikaku extends DisplayObject {
+public class Sankaku extends DisplayObject {
 
 	@Override
 	public boolean update() {
@@ -21,7 +21,9 @@ public class Shikaku extends DisplayObject {
 	public void draw(Graphics g) {
 		// TODO 自動生成されたメソッド・スタブ
 		g.setColor(getColor());
-		g.fillRect(getX(), getY(), getWidth(), getHeight());
+		int[] x = {getX(),getX() - getWidth() / 2,getX() + getWidth() / 2};
+		int[] y = {getY(), getY() + getHeight(),getY() + getHeight()};
+		g.fillPolygon(x, y,3);
 	}
 
 	@Override
