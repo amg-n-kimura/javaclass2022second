@@ -44,7 +44,6 @@ public class MouseSampleMain implements MouseListener {
 		m.startSample();
 	}
 
-	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
 		
