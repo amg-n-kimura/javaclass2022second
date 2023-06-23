@@ -6,8 +6,8 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
 import jp.co.amgakuin.javaclss2022second.framework.GameController;
-import jp.co.amgakuin.javaclss2022second.framework.GameControllerObject;
 
 /**
  * マウスで四角を描画する
@@ -46,7 +46,7 @@ public class MouseSampleMain implements MouseListener {
 	Random random = new Random();
 	
 	//描画するオブジェクトの管理用配列
-	private ArrayList<GameControllerObject> myObjects = new ArrayList<GameControllerObject>();
+	private ArrayList<DisplayObject> myObjects = new ArrayList<DisplayObject>();
 	
 	//ゲームコントローラーインスタンス
 	private GameController gc = null;
@@ -57,15 +57,15 @@ public class MouseSampleMain implements MouseListener {
 		gc.start();
 		
 		//MainLoopを起動する
-		MainLoop mainLoop = new MainLoop();
+		//MainLoop mainLoop = new MainLoop();
 		//mainLoop.setDoProcess(false);
 	}
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		MouseSampleMain m = new MouseSampleMain();
-		//m.startSample();
-		m.setUpArray2d();
+		m.startSample();
+		//m.setUpArray2d();
 	}
 
 	@Override
@@ -76,6 +76,9 @@ public class MouseSampleMain implements MouseListener {
 		if (e.getButton() == MouseEvent.BUTTON1) {
 			int mouseX = gc.normalizeX(e.getX());
 			int mouseY = gc.normalizeY(e.getY());
+			
+			//全オブジェクトに対して、衝突判定チェックを行う
+
 			Oval s = new Oval();
 			s.setX(mouseX);
 			s.setY(mouseY);
@@ -83,8 +86,10 @@ public class MouseSampleMain implements MouseListener {
 			s.setHeight(20);
 			s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
 			gc.addObject(s);
-			myObjects.add(s);
-			System.out.println("丸追加");
+			if (s != null) {
+				myObjects.add(s);
+				System.out.println("丸追加");
+			}
 		} else if (e.getButton() == MouseEvent.BUTTON2) {
 			//右ボタンで線を引く
 			int mouseX = gc.normalizeX(e.getX());
