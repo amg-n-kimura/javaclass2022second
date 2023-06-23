@@ -72,11 +72,11 @@ public class MouseSampleMain implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
 		
-		//左ボタンでオブジェクト追加
+		//左ボタンで円追加
 		if (e.getButton() == MouseEvent.BUTTON1) {
 			int mouseX = gc.normalizeX(e.getX());
 			int mouseY = gc.normalizeY(e.getY());
-			Shikaku s = new Shikaku();
+			Oval s = new Oval();
 			s.setX(mouseX);
 			s.setY(mouseY);
 			s.setWidth(20);
@@ -84,9 +84,22 @@ public class MouseSampleMain implements MouseListener {
 			s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
 			gc.addObject(s);
 			myObjects.add(s);
-			System.out.println("オブジェクト追加");
+			System.out.println("丸追加");
+		} else if (e.getButton() == MouseEvent.BUTTON2) {
+			//右ボタンで線を引く
+			int mouseX = gc.normalizeX(e.getX());
+			int mouseY = gc.normalizeY(e.getY());
+			Line l = new Line();
+			l.setX(mouseX);
+			l.setY(mouseY);
+			l.setWidth(30);
+			l.setHeight(30);
+			l.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
+			gc.addObject(l);
+			myObjects.add(l);
+			System.out.println("ライン追加");
 		} else if (e.getButton() == MouseEvent.BUTTON3) {
-			//左ボタンで古いオブジェクトを削除
+			//ホイールボタンで古いオブジェクトを削除
 			if (!myObjects.isEmpty()) {
 				gc.removeObject(myObjects.remove(0));
 				System.out.println("オブジェクト削除");
