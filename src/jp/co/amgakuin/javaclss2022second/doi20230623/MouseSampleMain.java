@@ -3,6 +3,7 @@ package jp.co.amgakuin.javaclss2022second.doi20230623;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -17,7 +18,7 @@ import jp.co.amgakuin.javaclss2022second.framework.GameController;
  *	MouseListenerの実装
  *	描画する四角（描画オブジェクト）を管理する
  */
-public class MouseSampleMain implements MouseListener {
+public class MouseSampleMain implements MouseListener,MouseMotionListener {
 	
 	//乱数用インスタンス
 	Random random = new Random();
@@ -28,9 +29,13 @@ public class MouseSampleMain implements MouseListener {
 	//ゲームコントローラーインスタンス
 	private GameController gc = null;
 	
+	//追加直後のオブジェクト
+	private DisplayObject addObject = null;
+	
 	public void startSample() {
 		gc = GameController.gameControllerCreate(640, 480);
 		gc.addMouseListener(this);
+		gc.addMouseMotionListener(this);
 		gc.start();
 		
 		//MainLoopを起動する
@@ -52,28 +57,15 @@ public class MouseSampleMain implements MouseListener {
 		if (e.getButton() == MouseEvent.BUTTON1) {
 			int mouseX = gc.normalizeX(e.getX());
 			int mouseY = gc.normalizeY(e.getY());
-			//既に四角があれば追加しない
-			if(checkOval(mouseX,mouseY)!=-1) {
-				return;
-			}
-			Shikaku shikaku = new Shikaku();
-			shikaku.setX(mouseX);
-			shikaku.setY(mouseY);
-			shikaku.setWidth(20);
-			shikaku.setHeight(20);
-			shikaku.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
-			gc.addObject(shikaku);
-			myObjects.add(shikaku);
+			addObject = new Shikaku();
+			addObject.setX(mouseX);
+			addObject.setY(mouseY);
+			addObject.setWidth(20);
+			addObject.setHeight(20);
+			addObject.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
+			gc.addObject(addObject);
+			myObjects.add(addObject);
 		} else if (e.getButton() == MouseEvent.BUTTON3) {
-			int mouseX = gc.normalizeX(e.getX());
-			int mouseY = gc.normalizeY(e.getY());
-			//四角があれば削除
-			int overlapIndex = checkOval(mouseX,mouseY);
-			if(overlapIndex ==-1) {
-				return;
-			}
-			gc.removeObject(myObjects.get(overlapIndex));
-			myObjects.remove(overlapIndex);
 		}
 	}
 	
@@ -110,6 +102,17 @@ public class MouseSampleMain implements MouseListener {
 	public void mouseExited(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
 		
+	}
+	@Override
+	public void mouseMoved(MouseEvent e) {
+
+	}
+	
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		addObject.setX(e.getX());
+		addObject.setY(e.getY());
+		System.out.println(e.getY());
 	}
 
 }
