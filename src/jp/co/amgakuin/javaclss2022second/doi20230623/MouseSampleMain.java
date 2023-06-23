@@ -6,8 +6,8 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
 import jp.co.amgakuin.javaclss2022second.framework.GameController;
-import jp.co.amgakuin.javaclss2022second.framework.GameControllerObject;
 
 /**
  * マウスで四角を描画する
@@ -23,7 +23,7 @@ public class MouseSampleMain implements MouseListener {
 	Random random = new Random();
 	
 	//描画するオブジェクトの管理用配列
-	private ArrayList<GameControllerObject> myObjects = new ArrayList<GameControllerObject>();
+	private ArrayList<DisplayObject> myObjects = new ArrayList<DisplayObject>();
 	
 	//ゲームコントローラーインスタンス
 	private GameController gc = null;
@@ -52,30 +52,40 @@ public class MouseSampleMain implements MouseListener {
 		if (e.getButton() == MouseEvent.BUTTON1) {
 			int mouseX = gc.normalizeX(e.getX());
 			int mouseY = gc.normalizeY(e.getY());
-			Oval oval = new Oval();
-			oval.setX(mouseX);
-			oval.setY(mouseY);
-			oval.setWidth(20);
-			oval.setHeight(20);
-			oval.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
-			gc.addObject(oval);
-			myObjects.add(oval);
+			//既に四角があれば追加しない
+			if(checkOval(mouseX,mouseY)!=-1) {
+				return;
+			}
+			Shikaku shikaku = new Shikaku();
+			shikaku.setX(mouseX);
+			shikaku.setY(mouseY);
+			shikaku.setWidth(20);
+			shikaku.setHeight(20);
+			shikaku.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
+			gc.addObject(shikaku);
+			myObjects.add(shikaku);
 		} else if (e.getButton() == MouseEvent.BUTTON3) {
 			int mouseX = gc.normalizeX(e.getX());
 			int mouseY = gc.normalizeY(e.getY());
-			Line line = new Line();
-			line.setX(mouseX);
-			line.setY(mouseY);
-			line.setWidth(20);
-			line.setHeight(20);
-			line.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
-			gc.addObject(line);
-			myObjects.add(line);
+			//四角があれば削除
+			int overlapIndex = checkOval(mouseX,mouseY);
+			if(overlapIndex ==-1) {
+				return;
+			}
+			gc.removeObject(myObjects.get(overlapIndex));
+			myObjects.remove(overlapIndex);
 		}
 	}
 	
-	private boolean checkOval(int positionX,int positionY) {
-		return false;
+	//重なっている四角のインデックスを返す
+	private int checkOval(int positionX,int positionY) {
+		//for(GameControllerObject object:myObjects) {
+		for(int i=0; i<myObjects.size(); i++) {
+			if(myObjects.get(i).getRect().contains(positionX, positionY)) {
+				return i;
+			}
+		}
+		return -1;
 	}
 	
 	@Override
