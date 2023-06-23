@@ -3,6 +3,7 @@ package jp.co.amgakuin.javaclss2022second.sankaku;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -17,7 +18,7 @@ import jp.co.amgakuin.javaclss2022second.framework.GameController;
  *	MouseListenerの実装
  *	描画する四角（描画オブジェクト）を管理する
  */
-public class MouseSampleMain implements MouseListener {
+public class MouseSampleMain implements MouseListener, MouseMotionListener {
 	
 
 	//[5][4]の配列がほしい
@@ -54,6 +55,7 @@ public class MouseSampleMain implements MouseListener {
 	public void startSample() {
 		gc = GameController.gameControllerCreate(640, 480);
 		gc.addMouseListener(this);
+		gc.addMouseMotionListener(this);
 		gc.start();
 		
 		//MainLoopを起動する
@@ -78,7 +80,8 @@ public class MouseSampleMain implements MouseListener {
 			int mouseY = gc.normalizeY(e.getY());
 			
 			//全オブジェクトに対して、衝突判定チェックを行う
-
+			//オミット
+			
 			Oval s = new Oval();
 			s.setX(mouseX);
 			s.setY(mouseY);
@@ -92,6 +95,7 @@ public class MouseSampleMain implements MouseListener {
 			}
 		} else if (e.getButton() == MouseEvent.BUTTON2) {
 			//右ボタンで線を引く
+			/*
 			int mouseX = gc.normalizeX(e.getX());
 			int mouseY = gc.normalizeY(e.getY());
 			Line l = new Line();
@@ -102,7 +106,7 @@ public class MouseSampleMain implements MouseListener {
 			l.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
 			gc.addObject(l);
 			myObjects.add(l);
-			System.out.println("ライン追加");
+			System.out.println("ライン追加");*/
 		} else if (e.getButton() == MouseEvent.BUTTON3) {
 			//ホイールボタンで古いオブジェクトを削除
 			if (!myObjects.isEmpty()) {
@@ -115,23 +119,33 @@ public class MouseSampleMain implements MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+		System.out.println("pressed"+e.getX());
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+		System.out.println("released"+e.getX());
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
-		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+		// TODO 自動生成されたメソッド・スタブ
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO 自動生成されたメソッド・スタブ
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
 		
 	}
