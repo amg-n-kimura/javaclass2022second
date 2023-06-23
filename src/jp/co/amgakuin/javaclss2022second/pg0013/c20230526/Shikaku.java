@@ -1,9 +1,8 @@
 /**
  * 四角オブジェクト
  */
-package jp.co.amgakuin.javaclss2022second.pg0013.c20221221;
+package jp.co.amgakuin.javaclss2022second.pg0013.c20230526;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
@@ -28,14 +27,6 @@ public class Shikaku extends DisplayObject {
 	public void initialize() {
 		// TODO 自動生成されたメソッド・スタブ
 		//初期位置の設定
-		setX(100);
-		setY(100);
-		setWidth(100);
-		setHeight(100);
-		//色の設定
-		setColor(Color.RED);
-		//初期化完了フラグ
-		setInitialized(true);
 	}
 
 }

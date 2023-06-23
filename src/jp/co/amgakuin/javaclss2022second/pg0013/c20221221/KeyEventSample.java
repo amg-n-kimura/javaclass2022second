@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import jp.co.amgakuin.javaclss2022second.framework.GameController;
+import jp.co.amgakuin.javaclss2022second.pg0013.c20230526.Shikaku;
 import lombok.Setter;
 
 public class KeyEventSample implements KeyListener {

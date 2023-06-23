@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
 import jp.co.amgakuin.javaclss2022second.framework.GameController;
 import jp.co.amgakuin.javaclss2022second.framework.GameControllerObject;
 
@@ -52,20 +53,36 @@ public class MouseSampleMain implements MouseListener {
 		if (e.getButton() == MouseEvent.BUTTON1) {
 			int mouseX = gc.normalizeX(e.getX());
 			int mouseY = gc.normalizeY(e.getY());
-			Sankaku s = new Sankaku();
-			s.setX(mouseX);
-			s.setY(mouseY);
-			s.setWidth(20);
-			s.setHeight(20);
-			s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
-			gc.addObject(s);
-			myObjects.add(s);
-			System.out.println("オブジェクト追加");
+			boolean isAddObject = true;
+			for(int i = 0; i < myObjects.size(); ++i) {
+				if(((DisplayObject) myObjects.get(i)).getRect().contains(mouseX, mouseY)) {
+					isAddObject = false;
+					System.out.println("オブジェクトがすでにある");
+				}
+			}
+			if(isAddObject) {
+				Shikaku s = new Shikaku();
+				s.setX(mouseX);
+				s.setY(mouseY);
+				s.setWidth(20);
+				s.setHeight(20);
+				s.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256),255));
+				gc.addObject(s);
+				myObjects.add(s);
+				System.out.println("オブジェクト追加");
+			}
 		} else if (e.getButton() == MouseEvent.BUTTON3) {
+			int mouseX = gc.normalizeX(e.getX());
+			int mouseY = gc.normalizeY(e.getY());
 			//左ボタンで古いオブジェクトを削除
 			if (!myObjects.isEmpty()) {
-				gc.removeObject(myObjects.remove(0));
-				System.out.println("オブジェクト削除");
+				for(int i = 0; i < myObjects.size(); ++i) {
+					if(((DisplayObject) myObjects.get(i)).getRect().contains(mouseX, mouseY)) {
+						gc.removeObject(myObjects.remove(0));
+						System.out.println("オブジェクト削除");
+					}
+				}
+				
 			}
 		}
 	}
