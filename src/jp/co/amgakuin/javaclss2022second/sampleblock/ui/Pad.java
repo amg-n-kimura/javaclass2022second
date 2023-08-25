@@ -54,6 +54,7 @@ public class Pad extends MoveObject implements KeyListener
             }
             //ボールの反転
             ball.reverseY();
+            setColor(ball.getColor());
         }
         return false;
     }

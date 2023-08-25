@@ -49,6 +49,7 @@ public class Block extends DisplayObject
                 }
                 //ボールの反転
                 ball.reverseY();
+                ball.setColor(255, getColor().getRed(), getColor().getGreen(), getColor().getBlue());
             }
         }
         return !isAlive();

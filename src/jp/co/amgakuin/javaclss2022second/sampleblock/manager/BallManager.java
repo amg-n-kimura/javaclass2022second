@@ -29,6 +29,7 @@ public class BallManager
 
     Map<Color, Ball> ballMap;
 
+    @Getter
     Color[] ballColors = {
             Color.RED,
             Color.MAGENTA,

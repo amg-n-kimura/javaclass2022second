@@ -20,11 +20,11 @@ public class BlockManager
     public final static int BLOCK_SPACE_VERTICAL = 2;
     public final static int BLOCK_SPACE_VERTICAL_HEADER = 20;
 
-    final static int COLOR_TYPE_RED = 0;
-    final static int COLOR_TYPE_MAGENTA = 1;
-    final static int COLOR_TYPE_YELLOW = 2;
-    final static int COLOR_TYPE_GREEN = 3;
-    final static int COLOR_TYPE_BLUE = 4;
+    public  final static int COLOR_TYPE_RED = 0;
+    public  final static int COLOR_TYPE_MAGENTA = 1;
+    public  final static int COLOR_TYPE_YELLOW = 2;
+    public  final static int COLOR_TYPE_GREEN = 3;
+    public  final static int COLOR_TYPE_BLUE = 4;
 
     /**
      * ゲームコントローラーのインスタンスをもらっておく必要がある

@@ -59,7 +59,9 @@ public class BlockGame
 
         score = new Score();
         gc.addObject(score);
-
+        BallManager.getInstance().changeColor(BallManager.getInstance().getBallColors()[BlockManager.COLOR_TYPE_BLUE]);
+        BallManager.getInstance().changeColor();
+        
         gc.start();
     }
 
