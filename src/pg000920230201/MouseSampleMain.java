@@ -48,7 +48,7 @@ public class MouseSampleMain implements MouseListener {
 		if(e.getButton()==MouseEvent.BUTTON1) {
 		 int mouseX = gc.normalizeX(e.getX());
 		 int mouseY = gc.normalizeY(e.getY());
-		 Shikaku s = new Shikaku();
+		 Triangle s = new Triangle();
 		 s.setX(mouseX);
 		 s.setY(mouseY);
 		 s.setWidth(100);
