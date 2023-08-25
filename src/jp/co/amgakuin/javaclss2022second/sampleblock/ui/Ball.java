@@ -66,7 +66,7 @@ public class Ball extends MoveObject
     public void initialize()
     {
         // TODO 自動生成されたメソッド・スタブ
-        setColor(Color.WHITE);
+        setColor(Color.ORANGE);
         setX(40);
         setY(200);
         setWidth(RADIUS);
