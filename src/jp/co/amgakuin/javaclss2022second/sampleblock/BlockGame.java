@@ -53,6 +53,12 @@ public class BlockGame
 
         BlockManager.getInstance().initialize(gc);
         BallManager.getInstance().initialize(gc);
+        
+        //開始時のボール色の指定
+        BallManager.getInstance().changeColor(
+        		BallManager.getInstance().getBallColors()[BlockManager.COLOR_TYPE_BLUE]);
+        BallManager.getInstance().changeColor();
+        
         pad = new Pad();
         gc.addKeyListener(pad);
         gc.addObject(pad);
