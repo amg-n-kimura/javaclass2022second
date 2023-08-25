@@ -29,6 +29,7 @@ public class BallManager
 
     Map<Color, Ball> ballMap;
 
+    @Getter
     Color[] ballColors = {
             Color.RED,
             Color.MAGENTA,
@@ -43,7 +44,9 @@ public class BallManager
     {
         ballMap = new HashMap<>();
         for (int i = 0; i < BlockManager.BLOCK_VERTICAL; i++) {
-            ballMap.put(ballColors[i], createColorBall(i));
+        	Ball ball = createColorBall(i);
+        	ball.initialize();
+            ballMap.put(ballColors[i],ball );
         }
     }
 
@@ -64,6 +67,7 @@ public class BallManager
     {
         gc = gameController;
         myBall = new Ball();
+        myBall.initialize();
         gc.addObject(myBall);
     }
 

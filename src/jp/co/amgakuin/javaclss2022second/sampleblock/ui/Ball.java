@@ -11,25 +11,17 @@ public class Ball extends MoveObject
 {
     public final static int RADIUS = 10;
 
-    private boolean reversed = false;
-
     /**
      * Y方向の反転
      */
     public void reverseY()
     {
-        if (!reversed) {
-            setDy(getDy() * -1);
-            reversed = true;
-        }
+        setDy(getDy() * -1);
     }
 
     public void setReverseX(int dir)
     {
-        if (!reversed) {
-            setDx(Math.abs(getDx()) * dir);
-            reversed = true;
-        }
+        setDx(Math.abs(getDx()) * dir);
     }
 
     @Override
@@ -48,9 +40,6 @@ public class Ball extends MoveObject
 
         setX(getX() + getDx());
         setY(getY() + getDy());
-        if (reversed) {
-            reversed = false;
-        }
         return false;
     }
 
@@ -66,7 +55,7 @@ public class Ball extends MoveObject
     public void initialize()
     {
         // TODO 自動生成されたメソッド・スタブ
-        setColor(Color.ORANGE);
+        setColor(Color.WHITE);
         setX(40);
         setY(200);
         setWidth(RADIUS);
