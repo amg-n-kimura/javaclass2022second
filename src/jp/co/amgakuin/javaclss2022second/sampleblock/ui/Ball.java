@@ -13,6 +13,17 @@ public class Ball extends MoveObject
 
     private boolean reversed = false;
 
+    /*
+     * 初期座標のセットアップ
+     */
+    public void setup()
+    {
+        setX(40);
+        setY(200);
+        setDx(1);
+        setDy(1);
+    }
+    
     /**
      * Y方向の反転
      */
@@ -67,12 +78,8 @@ public class Ball extends MoveObject
     {
         // TODO 自動生成されたメソッド・スタブ
         setColor(Color.WHITE);
-        setX(40);
-        setY(200);
         setWidth(RADIUS);
         setHeight(RADIUS);
-        setDx(1);
-        setDy(1);
         setInitialized(true);
     }
 

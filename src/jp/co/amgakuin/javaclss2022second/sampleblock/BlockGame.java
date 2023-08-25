@@ -5,7 +5,6 @@ import java.awt.Color;
 import jp.co.amgakuin.javaclss2022second.framework.GameController;
 import jp.co.amgakuin.javaclss2022second.sampleblock.manager.BallManager;
 import jp.co.amgakuin.javaclss2022second.sampleblock.manager.BlockManager;
-import jp.co.amgakuin.javaclss2022second.sampleblock.ui.Ball;
 import jp.co.amgakuin.javaclss2022second.sampleblock.ui.Block;
 import jp.co.amgakuin.javaclss2022second.sampleblock.ui.Pad;
 import jp.co.amgakuin.javaclss2022second.sampleblock.ui.Score;
@@ -24,10 +23,6 @@ public class BlockGame
     private int windowWidth;
     @Getter
     private int windowHeight;
-
-    //Ballクラスのフィールド
-    @Getter
-    private Ball ball;
 
     //Padクラスのフィールド
     private Pad pad;
@@ -55,9 +50,9 @@ public class BlockGame
         BallManager.getInstance().initialize(gc);
         
         //開始時のボール色の指定
-        BallManager.getInstance().changeColor(
-        		BallManager.getInstance().getBallColors()[BlockManager.COLOR_TYPE_BLUE]);
-        BallManager.getInstance().changeColor();
+        //BallManager.getInstance().changeColor(
+        //		BallManager.getInstance().getBallColors()[BlockManager.COLOR_TYPE_BLUE]);
+        //BallManager.getInstance().changeColor();
         
         pad = new Pad();
         gc.addKeyListener(pad);

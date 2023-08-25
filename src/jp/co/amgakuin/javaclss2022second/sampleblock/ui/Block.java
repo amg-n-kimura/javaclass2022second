@@ -34,6 +34,7 @@ public class Block extends DisplayObject
             //Ballクラスを取得して当たり判定を行う
             if (isHit(ball)) {
                 BallManager.getInstance().changeColor(getColor());
+                BallManager.getInstance().changeColor();
                 //当たっていたら、自身を消す（setAlive(false)）
                 setAlive(false);
 

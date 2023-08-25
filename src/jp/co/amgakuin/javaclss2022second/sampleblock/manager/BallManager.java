@@ -65,6 +65,7 @@ public class BallManager
     {
         gc = gameController;
         myBall = new Ball();
+        myBall.setup();
         gc.addObject(myBall);
     }
 
@@ -94,11 +95,11 @@ public class BallManager
     {
         gc.removeObject(myBall);
         Ball nextBall = ballMap.get(nextColor);
+        gc.addObject(nextBall);
         nextBall.setX(myBall.getX());
         nextBall.setY(myBall.getY());
         nextBall.setDx(myBall.getDx());
         nextBall.setDy(myBall.getDy());
         myBall = nextBall;
-        gc.addObject(myBall);
     }
 }
