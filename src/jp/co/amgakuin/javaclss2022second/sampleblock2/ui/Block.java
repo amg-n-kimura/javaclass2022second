@@ -20,6 +20,13 @@ public class Block extends DisplayObject
     @Getter
     @Setter
     private boolean alive = false;
+    
+    /**
+     * ブロックごとのスコア
+     */
+    @Getter
+    @Setter
+    private int score;
 
     /**
      * 更新処理を行うメソッドスタブ
@@ -37,7 +44,7 @@ public class Block extends DisplayObject
                 setAlive(false);
 
                 //スコア加算
-                int score = ScoreManager.getInstance().getScore() + 100;
+                int score = ScoreManager.getInstance().getScore() + getScore();
                 ScoreManager.getInstance().setScore(score);
 
                 //ボールの反転
@@ -80,6 +87,7 @@ public class Block extends DisplayObject
         setWidth(BLOCK_WIDTH);
         setHeight(BLOCK_HEIGHT);
         setAlive(true);
+        setScore(100);
         setInitialized(true);
     }
 }
