@@ -2,6 +2,7 @@ package jp.co.amgakuin.javaclss2022second.framework;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.image.BufferedImage;
 import java.util.Collections;
@@ -30,7 +31,7 @@ public class GameController extends JFrame implements Runnable {
 
 	private int screenWidth;
 	private int screenHeight;
-	private BufferedImage offScreen;
+	private Image offScreen;
 	private Graphics offScreenGraphics = null;
 
 	private Color bgColor;
@@ -89,7 +90,7 @@ public class GameController extends JFrame implements Runnable {
 		this.bgColor = Color.WHITE;
 		this.screenWidth = width;
 		this.screenHeight = height;
-		this.offScreen = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		this.offScreen = createImage(width, height);//new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		this.firstDrawing = true;
 		myThread = new Thread(this);
 	}
@@ -170,7 +171,7 @@ public class GameController extends JFrame implements Runnable {
 	 */
 	public Graphics getOffScreenGraphics() {
 		if (offScreenGraphics == null && offScreen != null) {
-			offScreenGraphics = offScreen.createGraphics();
+			offScreenGraphics = offScreen.getGraphics();
 		}
 		return offScreenGraphics;
 	}

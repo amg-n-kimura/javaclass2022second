@@ -57,15 +57,15 @@ public class MouseSampleMain implements MouseListener {
 		gc.start();
 		
 		//MainLoopを起動する
-		MainLoop mainLoop = new MainLoop();
+		//MainLoop mainLoop = new MainLoop();
 		//mainLoop.setDoProcess(false);
 	}
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		MouseSampleMain m = new MouseSampleMain();
-		//m.startSample();
-		m.setUpArray2d();
+		m.startSample();
+		//m.setUpArray2d();
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class MouseSampleMain implements MouseListener {
 			myObjects.add(s);
 			System.out.println("オブジェクト追加");
 		} else if (e.getButton() == MouseEvent.BUTTON3) {
-			//左ボタンで古いオブジェクトを削除
+			//右ボタンで古いオブジェクトを削除
 			if (!myObjects.isEmpty()) {
 				gc.removeObject(myObjects.remove(0));
 				System.out.println("オブジェクト削除");
