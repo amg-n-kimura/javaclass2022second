@@ -14,5 +14,6 @@ public class RedBlock extends Block
     public RedBlock()
     {
         setColor(Color.RED);
+        score = 500;
     }
 }

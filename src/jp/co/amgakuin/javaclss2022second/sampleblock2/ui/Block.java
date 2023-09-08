@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import jp.co.amgakuin.javaclss2022second.framework.DisplayObject;
 import jp.co.amgakuin.javaclss2022second.sampleblock2.manager.BallManager;
+import jp.co.amgakuin.javaclss2022second.sampleblock2.manager.BlockManager;
 import jp.co.amgakuin.javaclss2022second.sampleblock2.manager.ScoreManager;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +13,9 @@ public class Block extends DisplayObject
 {
     public final static int BLOCK_WIDTH = 40;
     public final static int BLOCK_HEIGHT = 10;
+    
+    @Getter
+    protected int score = 100;
 
     /**
      * ブロックが残っているかどうか
@@ -35,9 +39,10 @@ public class Block extends DisplayObject
             if (isHit(ball)) {
                 //当たっていたら、自身を消す（setAlive(false)）
                 setAlive(false);
+                BlockManager.getInstance().checkClear();
 
                 //スコア加算
-                int score = ScoreManager.getInstance().getScore() + 100;
+                int score = ScoreManager.getInstance().getScore() + this.getScore();
                 ScoreManager.getInstance().setScore(score);
 
                 //ボールの反転

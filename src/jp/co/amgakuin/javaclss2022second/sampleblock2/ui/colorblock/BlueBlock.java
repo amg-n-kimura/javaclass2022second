@@ -14,5 +14,6 @@ public class BlueBlock extends Block
     public BlueBlock()
     {
         setColor(Color.BLUE);
+    	score = 100;
     }
 }

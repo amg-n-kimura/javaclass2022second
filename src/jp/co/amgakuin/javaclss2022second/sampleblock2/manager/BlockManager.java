@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import jp.co.amgakuin.javaclss2022second.framework.GameController;
-import jp.co.amgakuin.javaclss2022second.framework.GameControllerObject;
 import jp.co.amgakuin.javaclss2022second.sampleblock2.ui.Block;
 import jp.co.amgakuin.javaclss2022second.sampleblock2.ui.colorblock.BlueBlock;
 import jp.co.amgakuin.javaclss2022second.sampleblock2.ui.colorblock.GreenBlock;
@@ -83,14 +82,25 @@ public class BlockManager
             for (int h = 0; h < BLOCK_HORIZONTAL; h++) {
                 Block block = createColorBlock(v);
 
-                GameControllerObject obj;
-                obj = block;
-
                 block.setX(BLOCK_SPACE_HORIZONTAL + h * (Block.BLOCK_WIDTH + BLOCK_SPACE_HORIZONTAL));
                 block.setY(BLOCK_SPACE_VERTICAL_HEADER + v * (Block.BLOCK_HEIGHT + BLOCK_SPACE_VERTICAL));
                 blockList.add(block);
                 gameController.addObject(block);
             }
         }
+    }
+    
+    public void checkClear() 
+    {
+    	boolean gameClear  = true;
+    	for(Block block:blockList) {
+    		if(block.isAlive()) {
+    			gameClear = false;
+    			break;
+    		}
+    	}
+    	if(gameClear) {
+    		gameController.interrupte();
+    	}
     }
 }

@@ -14,5 +14,6 @@ public class YellowBlock extends Block
     public YellowBlock()
     {
         setColor(Color.YELLOW);
+        score = 300;
     }
 }

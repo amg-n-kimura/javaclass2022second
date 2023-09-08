@@ -9,5 +9,6 @@ public class MagentaBlock extends Block
     public MagentaBlock()
     {
         setColor(Color.MAGENTA);
+        score = 400;
     }
 }

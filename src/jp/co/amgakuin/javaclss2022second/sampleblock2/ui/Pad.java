@@ -46,6 +46,7 @@ public class Pad extends MoveObject implements KeyListener
         //Ballクラスを取得して当たり判定を行う
         Ball ball = BallManager.getInstance().getMyBall();
         if (isHit(ball)) {
+        	this.setColor(ball.getColor());
             //パッドの左または右と当たっているかどうか
             if (ball.getX() <= getX()) {
                 ball.setReverseX(-1);
